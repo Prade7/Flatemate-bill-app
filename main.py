@@ -21,7 +21,7 @@ class flatmate():
     def pays(self,flatmatePerson,the_bill):
         weight=self.days_in_house/(self.days_in_house+flatmatePerson.days_in_house)
         to_pay=the_bill.amount*weight
-        return to_pay
+        return round(to_pay)
 
     
 class pfdGenerator():
@@ -49,11 +49,11 @@ class pfdGenerator():
         webbrowser.open(self.filename)
 
 amount=eval(input("Hey user , Enter the amount you need to split example 240 - "))
-period=input("Enter the period of the bill exaple jan 2022 - ")
+period=input("Enter the period of the bill example jan 2022 - ")
 person1=input("Enter the name of the flatemate example vagish - ")
-person2=input("Enter the name of the flatemate exaple naveen karthi - ")
-no_of_days_of_person1=eval(input(f"Enter the number of days of {person1} - "))
-no_of_days_of_person2=eval(input(f"Enter the number of days of {person2} - "))
+person2=input("Enter the name of the flatemate example naveen karthi - ")
+no_of_days_of_person1=eval(input(f"Enter the number of days that {person1} stayed - "))
+no_of_days_of_person2=eval(input(f"Enter the number of days that {person2} stayed - "))
 
 
 the_bill=bill(amount=amount,period=period)
@@ -66,16 +66,6 @@ person_2=flatmate(name=person2,days_in_house=no_of_days_of_person2)
 
 pfd=pfdGenerator("report.pdf")
 pfd.generate(person_1,person_2,the_bill)
-
-
-
-
-
-
-
-
-
-
 
 
 
